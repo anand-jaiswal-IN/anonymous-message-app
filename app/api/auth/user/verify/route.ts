@@ -20,6 +20,12 @@ export async function POST(request: Request) {
       });
     }
 
+    if (user.isVerified) {
+      return Response.json(ErrorResponse("User is already verified"), {
+        status: 400,
+      });
+    }
+
     if (user.verifyCode !== code) {
       return Response.json(ErrorResponse("Invalid code"), {
         status: 400,

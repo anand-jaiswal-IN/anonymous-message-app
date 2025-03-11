@@ -34,12 +34,12 @@ export async function GET(req: Request) {
 
     if (user) {
       return Response.json(
-        SuccessResponse("Username exist", { isUnique: true }),
+        SuccessResponse("Username is already taken", { isUnique: false }),
         { status: 200 }
       );
     } else {
       return Response.json(
-        SuccessResponse("Username does not exist", { isUnique: true }),
+        SuccessResponse("Username is unique", { isUnique: true }),
         { status: 200 }
       );
     }

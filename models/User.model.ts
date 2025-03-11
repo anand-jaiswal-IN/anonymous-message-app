@@ -10,18 +10,17 @@ export interface User extends mongoose.Document {
   verifyCode: string;
   isVerified: boolean;
   messages: Message[];
+  isAcceptingMessages: boolean;
 }
 
 const UserSchema: mongoose.Schema<User> = new mongoose.Schema(
   {
     firstname: {
       type: String,
-      required: true,
       default: "",
     },
     lastname: {
       type: String,
-      required: true,
       default: "",
     },
     username: {
@@ -45,18 +44,19 @@ const UserSchema: mongoose.Schema<User> = new mongoose.Schema(
     },
     verifyCode: {
       type: String,
-      nullable: true,
-      default: null,
+      default: "",
     },
     isVerified: {
       type: Boolean,
-      required: true,
       default: false,
     },
     messages: {
       type: [messageSchema],
-      required: true,
       default: [],
+    },
+    isAcceptingMessages: {
+      type: Boolean,
+      default: true,
     },
   },
   {

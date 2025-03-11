@@ -12,7 +12,6 @@ export const messageSchema: mongoose.Schema<Message> = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    required: true,
     default: Date.now,
   },
 });

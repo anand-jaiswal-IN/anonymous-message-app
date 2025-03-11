@@ -9,6 +9,7 @@ declare module "next-auth" {
       username: string;
       email: string;
       isVerified: boolean;
+      isAcceptingMessages: boolean;
     } & DefaultSession["user"];
   }
 
@@ -19,5 +20,6 @@ declare module "next-auth" {
     username: string;
     email: string;
     isVerified: boolean;
+    isAcceptingMessages: boolean;
   }
 }

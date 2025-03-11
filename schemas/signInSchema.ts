@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const signInSchema = z.object({
-  identifier: z.string(),
+  email: z.string(),
   password: z.string(),
 });
 
