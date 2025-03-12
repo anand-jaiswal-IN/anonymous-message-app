@@ -18,7 +18,7 @@ export default function Dashboard() {
   const { data: session, status } = useSession();
   const [messages, setMessages] = useState<(Message & { _id: string })[]>([]);
   const [loadingMessage, setLoadingMessage] = useState(false);
-
+  const [origin, setOrigin] = useState<string>("");
   const [isAcceptingMessages, setIsAcceptingMessages] = useState(false);
   const [loadingIsAcceptingMessages, setLoadingIsAcceptingMessages] =
     useState(false);
@@ -57,7 +57,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (status !== "authenticated") return; // Ensure session exists
-
+    if (typeof window !== "undefined") {
+      setOrigin(window.location.origin);
+    }
     fetchMessages();
     fetchIsAcceptingMessages();
   }, [status]); // Depend on session status
@@ -135,7 +137,7 @@ export default function Dashboard() {
           </label>
           <Input
             type="text"
-            value={`${process.env.NEXT_PUBLIC_DOMAIN_URL}/${session?.user?.username}/send-message`}
+            value={`${origin}/${session?.user?.username}/send-message`}
             readOnly
             className="mb-2"
           />
@@ -143,7 +145,7 @@ export default function Dashboard() {
             type="button"
             onClick={() => {
               navigator.clipboard.writeText(
-                `${process.env.NEXT_PUBLIC_DOMAIN_URL}/${session?.user?.username}/send-message`
+                `${origin}/${session?.user?.username}/send-message`
               );
               toast.success("Copied to clipboard", { duration: 5000 });
             }}

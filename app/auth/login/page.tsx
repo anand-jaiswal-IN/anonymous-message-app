@@ -50,13 +50,15 @@ export default function Page() {
         password: values.password,
         redirect: false,
       });
-      if (result?.error != null) {
+      if (result?.error) {
         setLoginError(result.error);
         toast.error(result.error, { duration: 5000 });
       } else {
         setLoginError("");
         toast.success("Login successful", { duration: 5000 });
-        router.push("/dashboard");
+        window.location.reload();
+        router.refresh();
+        router.replace("/dashboard");
       }
     } catch (error: unknown) {
       setLoginError("An error occurred " + error);
