@@ -39,8 +39,7 @@ export async function POST(request: Request) {
     return Response.json(SuccessResponse("User verified successfully"), {
       status: 200,
     });
-  } catch (error: any) {
-    console.log(error);
+  } catch (error: unknown) {
     return Response.json(ErrorResponse("Something went wrong : ", error), {
       status: 500,
     });

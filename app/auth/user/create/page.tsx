@@ -95,16 +95,13 @@ export default function Page() {
       router.push(`/auth/user/${response.data.data.username}/verify`);
     } catch (error) {
       if (error instanceof AxiosError) {
-        console.log(error.response?.data);
         toast.error(error.response?.data.message, { duration: 5000 });
       } else {
-        console.log(error);
+        toast.error("Something went wrong", { duration: 5000 });
       }
     } finally {
       setLoading(false);
     }
-
-    console.log(values);
   }
 
   return (

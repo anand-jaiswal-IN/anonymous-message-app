@@ -16,7 +16,7 @@ export default function Navbar() {
       signOut();
       toast.success("Logout successful", { duration: 5000 });
     } catch (error) {
-      toast.error("Something went wrong", { duration: 5000 });
+      toast.error("Something went wrong " + error, { duration: 5000 });
     }
   };
 
@@ -92,26 +92,5 @@ export default function Navbar() {
         </div>
       )}
     </nav>
-  );
-}
-
-// Reusable NavLink Component
-function NavLink({
-  href,
-  children,
-  onClick,
-}: {
-  href: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-}) {
-  return (
-    <Link
-      href={href}
-      className="hover:text-gray-300 transition"
-      onClick={onClick}
-    >
-      {children}
-    </Link>
   );
 }

@@ -3,8 +3,9 @@ import { authOptions } from "../../auth/[...nextauth]/options";
 import { ErrorResponse, SuccessResponse } from "@/types/ApiResponse";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/models/User.model";
+import { Message } from "@/models/Message.model";
 
-export async function GET(req: Request) {
+export async function GET(_req: Request) {
   const session = await getServerSession(authOptions);
   const user: User = session?.user;
 
@@ -25,7 +26,7 @@ export async function GET(req: Request) {
     }
 
     const sortedMessages = _user.messages.sort(
-      (a: any, b: any) => b.createdAt - a.createdAt
+      (a: Message, b: Message) => b.createdAt.getTime() - a.createdAt.getTime()
     );
 
     return Response.json(
@@ -35,7 +36,7 @@ export async function GET(req: Request) {
       }
     );
   } catch (error) {
-    return Response.json(ErrorResponse("Error accessing messages"), {
+    return Response.json(ErrorResponse("Error accessing messages " + error), {
       status: 500,
     });
   }

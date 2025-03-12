@@ -43,8 +43,7 @@ export async function GET(req: Request) {
       );
     }
   } catch (error) {
-    console.error("Error checking username:", error);
-    return Response.json(ErrorResponse("Error checking username"), {
+    return Response.json(ErrorResponse("Error checking username " + error), {
       status: 500,
     });
   }

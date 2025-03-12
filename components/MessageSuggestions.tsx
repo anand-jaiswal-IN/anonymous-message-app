@@ -58,7 +58,7 @@ const listOfMessages = [
 export default function MessagePagination({
   setMessage,
 }: {
-  setMessage: Function;
+  setMessage: (message: string) => void;
 }) {
   const [startIndex, setStartIndex] = useState(0);
   const messagesPerPage = 3;

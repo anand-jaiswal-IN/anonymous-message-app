@@ -39,8 +39,8 @@ export async function DELETE(req: Request) {
         status: 200,
       }
     );
-  } catch (error) {
-    return Response.json(ErrorResponse("Error deleting messages"), {
+  } catch (error: unknown) {
+    return Response.json(ErrorResponse("Error deleting messages " + error), {
       status: 500,
     });
   }

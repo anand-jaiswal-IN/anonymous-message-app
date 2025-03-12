@@ -24,7 +24,6 @@ async function sendVerificationCode(
     });
     return SuccessResponse("Email sent successfully", data);
   } catch (error) {
-    console.error("Error sending email:", error);
     return ErrorResponse("Error sending email", error);
   }
 }

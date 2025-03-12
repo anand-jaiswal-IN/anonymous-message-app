@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 export default function Home() {
-  console.log("it is server components");
   return (
     <main className="flex flex-col items-center justify-center min-h-screen text-center px-4">
       <h1 className="text-4xl font-bold mb-4">🔒 Anonymous Message App</h1>

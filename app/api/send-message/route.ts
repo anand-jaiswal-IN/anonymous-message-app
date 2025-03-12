@@ -10,7 +10,6 @@ export async function POST(req: Request) {
   try {
     // getting the username and message from the body
     const { username, message } = await req.json();
-    console.log(username, message);
     if (!username || !message) {
       return Response.json(ErrorResponse("Username and message are required"), {
         status: 400,
@@ -51,7 +50,7 @@ export async function POST(req: Request) {
       status: 200,
     });
   } catch (error) {
-    return Response.json(ErrorResponse("Error sending message"), {
+    return Response.json(ErrorResponse("Error sending message " + error), {
       status: 500,
     });
   }

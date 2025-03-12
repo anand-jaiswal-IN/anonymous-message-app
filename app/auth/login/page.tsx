@@ -50,7 +50,7 @@ export default function Page() {
         password: values.password,
         redirect: false,
       });
-      if (result?.error) {
+      if (result?.error != null) {
         setLoginError(result.error);
         toast.error(result.error, { duration: 5000 });
       } else {
@@ -58,8 +58,9 @@ export default function Page() {
         toast.success("Login successful", { duration: 5000 });
         router.push("/dashboard");
       }
-    } catch (error) {
-      console.log(error);
+    } catch (error: unknown) {
+      setLoginError("An error occurred " + error);
+      toast.error("An error occurred", { duration: 5000 });
     } finally {
       setLoading(false);
     }

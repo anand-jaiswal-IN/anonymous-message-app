@@ -66,10 +66,9 @@ export async function POST(request: Request) {
     return Response.json(SuccessResponse("User created successfully", user), {
       status: 201,
     });
-  } catch (error: any) {
-    console.error(error?.message || "Error creating user:", error);
+  } catch (error: unknown) {
     return Response.json(
-      ErrorResponse(error?.message || "Error creating user", error),
+      ErrorResponse((error as string) || "Error creating user", error),
       {
         status: 500,
       }

@@ -38,13 +38,13 @@ export async function POST(req: Request) {
       }
     );
   } catch (error) {
-    return Response.json(ErrorResponse("Error accepting messages"), {
+    return Response.json(ErrorResponse("Error accepting messages " + error), {
       status: 500,
     });
   }
 }
 
-export async function GET(req: Request) {
+export async function GET(_req: Request) {
   const session = await getServerSession(authOptions);
   const user: User = session?.user;
 
@@ -65,7 +65,7 @@ export async function GET(req: Request) {
       }
     );
   } catch (error) {
-    return Response.json(ErrorResponse("Error accepting messages"), {
+    return Response.json(ErrorResponse("Error accepting messages " + error), {
       status: 500,
     });
   }
