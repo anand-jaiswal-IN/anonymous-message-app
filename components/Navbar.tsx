@@ -29,6 +29,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="hidden md:flex space-x-4 md:items-center">
+          <Link href="/">Home</Link>
           <Link href="/dashboard">Dashboard</Link>
           {session ? (
             <Button variant="default" onClick={handleLogout}>
@@ -61,6 +62,9 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-800 flex flex-col items-center space-y-4 py-4">
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            Home
+          </Link>
           <Link href="/dashboard" onClick={() => setIsOpen(false)}>
             Dashboard
           </Link>

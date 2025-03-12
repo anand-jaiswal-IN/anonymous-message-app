@@ -65,7 +65,9 @@ export default function Page() {
       <Card className="mx-auto w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl font-bold">OTP Verification</CardTitle>
-          <CardDescription className="">Verify your account</CardDescription>
+          <CardDescription className="">
+            Check your email to get the OTP
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Input

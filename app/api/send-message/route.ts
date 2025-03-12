@@ -38,6 +38,11 @@ export async function POST(req: Request) {
         status: 404,
       });
     }
+    if (!user.isAcceptingMessages) {
+      return Response.json(ErrorResponse("User is not accepting messages"), {
+        status: 400,
+      });
+    }
 
     // if everything is fine then push the message into the messages array of user
     user.messages.push({ message } as Message);

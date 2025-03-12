@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import UserModel from "@/models/User.model";
 import dbConnect from "@/lib/dbConnect";
 import { usernameValidation } from "@/schemas/signUpSchema";

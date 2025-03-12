@@ -5,6 +5,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import signUpSchema from "@/schemas/signUpSchema";
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +18,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import {
   Form,
   FormControl,
@@ -28,10 +30,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { LoaderCircle } from "lucide-react";
-
-import axios, { AxiosError } from "axios";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function Page() {
   const router = useRouter();

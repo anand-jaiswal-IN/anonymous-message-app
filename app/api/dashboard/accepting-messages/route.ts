@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   try {
     // send post data `isAcceptingMessages`
     const { isAcceptingMessages } = await req.json();
-    if (!isAcceptingMessages) {
+    if (isAcceptingMessages === undefined) {
       return Response.json(ErrorResponse("isAcceptingMessages is required"), {
         status: 400,
       });
@@ -44,29 +44,29 @@ export async function POST(req: Request) {
   }
 }
 
-// export async function GET(req: Request) {
-//   const session = await getServerSession(authOptions);
-//   const user: User = session?.user;
+export async function GET(req: Request) {
+  const session = await getServerSession(authOptions);
+  const user: User = session?.user;
 
-//   if (!session || !user) {
-//     return Response.json(ErrorResponse("Unauthorized"), {
-//       status: 401,
-//     });
-//   }
-//   await dbConnect();
-//   try {
-//     const _user = await UserModel.findById(user.id).select(
-//       "isAcceptingMessages"
-//     );
-//     return Response.json(
-//       SuccessResponse("Messages accepted successfully", _user),
-//       {
-//         status: 200,
-//       }
-//     );
-//   } catch (error) {
-//     return Response.json(ErrorResponse("Error accepting messages"), {
-//       status: 500,
-//     });
-//   }
-// }
+  if (!session || !user) {
+    return Response.json(ErrorResponse("Unauthorized"), {
+      status: 401,
+    });
+  }
+  await dbConnect();
+  try {
+    const _user = await UserModel.findById(user.id).select(
+      "isAcceptingMessages"
+    );
+    return Response.json(
+      SuccessResponse("Messages accepted successfully", _user),
+      {
+        status: 200,
+      }
+    );
+  } catch (error) {
+    return Response.json(ErrorResponse("Error accepting messages"), {
+      status: 500,
+    });
+  }
+}

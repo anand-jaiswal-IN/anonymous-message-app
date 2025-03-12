@@ -17,6 +17,7 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import MessageSuggestions from "@/components/MessageSuggestions";
 
 export default function Page() {
   const [loading, setLoading] = useState(false);
@@ -57,12 +58,16 @@ export default function Page() {
           <div>
             <Textarea
               placeholder="Write your anonymous message..."
+              value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
             <br />
+
             <Button className="w-full" onClick={handleSendMessage}>
               {loading ? <Loader2 className="animate-spin" /> : "Send Message"}
             </Button>
+
+            <MessageSuggestions setMessage={setMessage} />
           </div>
         </CardContent>
         <CardFooter>
