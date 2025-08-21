@@ -1,75 +1,72 @@
 # Anonymous Message App
 
-An anonymous messaging platform built with **Next.js** that allows users to send anonymous messages to any other user.
+This is a full-stack anonymous messaging application that allows users to send and receive anonymous messages.
 
 ## Features
 
-- 🔒 **Anonymous Messaging**: Users can send messages anonymously.
-- 📨 **Receive Messages**: Users can receive messages without knowing the sender.
-- 📱 **User-friendly Interface**: A clean and minimal UI for a seamless experience.
-- ⚡ **Fast & Secure**: Built with Next.js for performance and security.
+- **User Authentication:** Users can sign up, log in, and log out.
+- **Anonymous Messaging:** Logged-in users can send anonymous messages to other users.
+- **Dashboard:** Users have a dashboard where they can view received messages.
+- **Unique Usernames:** Each user has a unique username.
+- **Message Acceptance Control:** Users can control whether they want to accept anonymous messages or not.
+- **Verification:** Users are verified by email.
 
 ## Tech Stack
 
-- **Frontend:** Next.js, React.js, Shadcn
-- **Backend:** Next.js API Routes
-- **Database:** Mongo Atlas
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Database:** MongoDB
 - **Authentication:** NextAuth.js
+- **Styling:** Tailwind CSS
+- **Schema Validation:** Zod
+- **ORM:** Mongoose
 
-## Installation & Setup
+## Getting Started
 
-1. Clone the repository:
+### Prerequisites
 
-   ```bash
-   git clone https://github.com/anand-jaiswal-IN/anonymous-message-app.git
-   cd anonymous-message-app
-   ```
+- Node.js
+- MongoDB
 
-2. Install dependencies:
+### Installation
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+1.  Clone the repository:
 
-3. Set up environment variables:
+    ```bash
+    git clone https://github.com/anandjaiswal-IN/anonymous-message-app.git
+    ```
 
-   Rename `.sample.env` file to `.env` file and fill the required fields into it.
+2.  Install dependencies:
 
-4. Run the development server:
+    ```bash
+    npm install
+    ```
 
-   ```bash
-   npm run dev
-   ```
+3.  Set up environment variables:
 
-   Open [http://localhost:3000](http://localhost:3000) to view the app.
+    Create a `.env` file in the root directory and add the following variables:
 
-5. Build for production:
+    ```env
+    MONGODB_URI=your_mongodb_uri
+    NEXTAUTH_SECRET=your_nextauth_secret
+    ...
+    ```
 
-   ```bash
-   npm run build
-   npm run start
-   ```
+4.  Run the development server:
 
-## Usage
+    ```bash
+    npm run dev
+    ```
 
-1. Open the app and enter the recipient's username or unique identifier.
-2. Type your anonymous message and send it.
-3. The recipient will receive the message without knowing the sender.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Roadmap
+## Screenshots
 
-- ✅ Basic anonymous messaging
-- 🚀 User authentication
-- 🌎 Deployment Vercel
+![Screenshot 1](./screenshots/1.png)
+![Screenshot 2](./screenshots/2.png)
+![Screenshot 3](./screenshots/3.png)
+![Screenshot 4](./screenshots/4.png)
 
-## Contributing
+## Project Structure
 
-Contributions are welcome! If you’d like to improve this project, feel free to open an issue or submit a pull request.
-
----
-
-### 🌟 Show some love!
-
-If you like this project, give it a ⭐ on GitHub!
+![Project Structure](./screenshots/Tree-of-project-folder.png)
