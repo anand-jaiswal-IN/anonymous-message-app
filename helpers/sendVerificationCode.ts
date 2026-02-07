@@ -3,7 +3,7 @@ import ApiResponse, {
   ErrorResponse,
   SuccessResponse,
 } from "@/types/ApiResponse";
-import transport from "./emailService";
+import { getTransport } from "./emailService";
 
 export function generateCode(): string {
   return Math.floor(100000 + Math.random() * 900000).toString();
@@ -12,9 +12,10 @@ export function generateCode(): string {
 async function sendVerificationCode(
   sender_email: string,
   username: string,
-  code: string
+  code: string,
 ): Promise<ApiResponse> {
   try {
+    const transport = await getTransport();
     const mailOptions = {
       from: `${process.env.NEXT_PUBLIC_APP_NAME} <${process.env.NEXT_PUBLIC_APP_EMAIL}>`,
       to: sender_email,

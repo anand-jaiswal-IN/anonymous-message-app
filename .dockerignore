@@ -11,7 +11,7 @@ out
 build
 
 # Environment variables
-# .env
+.env
 .env.sample
 .env.local
 .env.development.local
@@ -75,4 +75,4 @@ lerna-debug.log*
 
 # Documentation
 README.md
-screenshot/
+screenshots/
